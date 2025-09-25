@@ -48,12 +48,15 @@
           "vaul": "^1.1.2"
       },
       "devDependencies": {
-          "@types/node": "^20.10.0",
-          "@vitejs/plugin-react-swc": "^3.10.2",
-          "vite": "6.3.5"
-      },
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "concurrently": "^9.0.1",
+    "vite": "6.3.5"
+  },
       "scripts": {
-          "dev": "vite",
-          "build": "vite build"
-      }
+    "dev": "vite",
+    "build": "vite build",
+    "backend": "python -m flask --app backend.app:create_app --debug run --port 5001",
+    "dev:full": "concurrently \"npm:backend\" \"vite\""
   }
+}
